@@ -81,7 +81,7 @@ bot.on('message', async message => {
 	let prefix;
 
 	if (!pref) {
-		prefix = "!";
+		prefix = `${config.prefix}`;
 	} else {
 		prefix = pref;
 	}
