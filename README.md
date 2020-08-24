@@ -13,8 +13,7 @@ git clone https://github.com/NightCrafter1/Discord-Utilities
 ```
 npm i
 ```
-4. Change the file "config-README.json" to "config.json" and enter your bot token, your user ID and your desired prefix for the bot with a text editor. (preferably Notepad++ However normal text editors should still work).
-
+4. Change the file "config-README.json" to "config.json" and enter your bot token, your user ID and your desired prefix for the bot with a text editor. (preferably Notepad++ However normal text editors should still work).   
 If you do not see the ".json" at the end of the file name ignore using them in the file name, that will make the bot unable to find the config file
 5. Start the bot with 
 ```
