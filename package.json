@@ -12,6 +12,8 @@
     "@discordjs/opus": "^0.3.2",
     "beautify": "0.0.8",
     "discord.js": "^12.2.0",
+    "lodash": "^4.17.20",
+    "lodash.update": "^4.10.2",
     "ms": "^2.1.2",
     "quick.db": "^7.1.1",
     "random-puppy": "^1.1.0",
