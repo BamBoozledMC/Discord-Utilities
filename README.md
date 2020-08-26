@@ -11,8 +11,9 @@ git clone https://github.com/NightCrafter1/Discord-Utilities
 ```
 3. Install Dependencies:
 ```
-npm i
-```
+npm install
+```     
+If you encounter any issues when running this command on **WINDOWS** please refer to [this guide](https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/troubleshooting.md).
 4. Change the file "config-README.json" to "config.json" and enter your bot token, your user ID and your desired prefix for the bot with a text editor. (preferably Notepad++ However normal text editors should still work).   
 If you do not see the ".json" at the end of the file name ignore using them in the file name, that will make the bot unable to find the config file
 5. Start the bot with 
