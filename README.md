@@ -9,7 +9,7 @@ An awesome bot with moderation, fun and more!
 ```
 git clone https://github.com/NightCrafter1/Discord-Utilities
 ```
-3. Install Dependencies:
+3. Install Dependencies:    
 If you encounter any issues when running this command on **WINDOWS** please refer to [this guide](https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/troubleshooting.md).
 ```
 npm install
