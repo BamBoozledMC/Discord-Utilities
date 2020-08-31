@@ -4,6 +4,7 @@ module.exports = {
 	name: 'uptime',
 	description: 'Checks the bot\'s uptime',
 	usage: '!uptime',
+    aliases: ['up'],
 	args: false,
 	async execute(bot, message, args, ping) {
     let totalSeconds = (bot.uptime / 1000);
