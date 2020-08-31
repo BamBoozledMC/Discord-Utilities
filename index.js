@@ -201,6 +201,17 @@ bot.on("guildDelete", async guild => {
 	.setTimestamp()
 	bot.users.cache.get(config.ownerID).send(guildremoved)
 });
+
+bot.snipes = new Map()
+bot.on('messageDelete', function(message, channel) {
+	if (message.author.bot) return
+	bot.snipes.set(message.channel.id, {
+		content:message.content,
+		author:message.author.tag,
+		icon:message.author.avatarURL(),
+		image:message.attachments.first() ? message.attachments.first().proxyURL : null
+	})
+});
 	
 	
 
