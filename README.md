@@ -9,14 +9,16 @@ An awesome bot with moderation, fun and more!
 ```
 git clone https://github.com/NightCrafter1/Discord-Utilities
 ```
-3. Install Dependencies:    
-If you encounter any issues when running this command on **WINDOWS** please refer to [this guide](https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/troubleshooting.md).
+3. Extract the ZIP file.
+4. Install Dependencies:    
+Shift + Right click in the folder and select "Open Powershell window here" and run
 ```
 npm install
-```
-4. Change the file "config-README.json" to "config.json" and enter your bot token, your user ID and your desired prefix for the bot with a text editor. (preferably Notepad++ However normal text editors should still work).   
+```     
+If you encounter any issues when running this command on **WINDOWS** please refer to [this guide](https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/troubleshooting.md).
+5. Change the file "config-README.json" to "config.json" and enter your bot token, your user ID and your desired prefix for the bot with a text editor. (preferably Notepad++ However normal text editors should still work).   
 If you do not see the ".json" at the end of the file name ignore using them in the file name, that will make the bot unable to find the config file
-5. Start the bot with 
+6. Start the bot with 
 ```
 node bot.js
 ```
