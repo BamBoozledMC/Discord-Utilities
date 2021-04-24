@@ -11,8 +11,9 @@ git clone https://github.com/NightCrafter1/Discord-Utilities
 ```
 3. Extract the ZIP file.
 4. Install Dependencies:    
-Shift + Right click in the folder and select "Open Powershell window here" and run ``` npm install ```     
-If you encounter any issues when running this command on **WINDOWS** please refer to [this guide](https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/troubleshooting.md).
+Shift + Right click in the folder and select "Open Powershell window here".
+If you are installing on **WINDOWS** please run ``` npm install -g windows-build-tools ```
+Once that has completed then run ``` npm install ```     
 
 5. Change the file "config-README.json" to "config.json" and enter your bot token, your user ID and your desired prefix for the bot with a text editor. (preferably Notepad++ However normal text editors should still work).   
 If you do not see the ".json" at the end of the file name ignore using them in the file name, that will make the bot unable to find the config file
