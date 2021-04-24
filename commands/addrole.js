@@ -2,19 +2,23 @@ const config = require('../config.json');
 const Discord = require ("discord.js");
 
 module.exports = {
-	name: 'dm',
+	name: 'addrole',
     descrption: 'DMs mentioned user with your message',
+    aliases: ['ar', 'addr', 'roleadd'],
 	usage: '<message>',
 	args: true,
 	async execute(bot, message, args, prefix) {
 		// if(message.author.id != config.resID) return;
-		if(message.author.id != config.ownerID) if(message.author.id != config.resID) return;
+		//if(message.author.id != config.ownerID) if(message.author.id != config.resID) return;
+
+        if (!message.member.hasPermission("MANAGE_ROLES") && message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!");
+    if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send(":x: I do not have enough permissions to do this!\nPlease make sure i have the \"MANAGE_ROLES\" permission.")
 		let xdemb = new Discord.MessageEmbed()
 	  		.setColor("AQUA")
-	  		.setTitle("DM Command")
-			.addField("Description:", `DMs a member`, true)
-	 		.addField("Usage:", `${prefix}dm <@user | userID> [message]`, true)
-	 		.addField("Example:" ,`${prefix}dm @NightCrafter1 Hello There!`)
+	  		.setTitle("AddRole Command")
+			.addField("Description:", `Adds a role to a user`, true)
+	 		.addField("Usage:", `${prefix}addrole <@user | userID> <@role>`, true)
+	 		.addField("Example:" ,`${prefix}addrole @NightCrafter1 @Moderator`)
 		let member;
 		if(args[0]) {
 		  let mention;
@@ -51,17 +55,24 @@ module.exports = {
 		if (!member) return message.channel.send(xdemb);
             message.delete()
             if(member == null) return message.channel.send(xdemb)
-			mentionMessage = args.slice(1).join(" ");
-			try {
-            member.send(mentionMessage);            
-			message.channel.send(`:thumbsup: Successfully DM'd **${member.user.username}**!`)
-			.then(message => {
-				message.delete({timeout:5000})
-			});
-		} catch(e){
-			console.log(e)
-			message.reply(`:x: An Error occurred whilst messaging that user!\nAre their DMs closed? Did they block me?`)
-		}
+			
+
+  let role = args[1]
+  console.log(args[1])
+  console.log(args[2])
+  console.log(args[3])
+  console.log(args[4])
+  console.log(role)
+  if(!role) return message.channel.send(xdemb);
+  let gRole = message.guild.roles.cache.get(role);
+  if(!gRole) return message.channel.send("Couldn't find that role.");
+
+  if(member.roles.cache.has(gRole.id)) return message.channel.send("This user already have that role.");
+  await(member.roles.add(gRole.id));
+
+    await message.channel.send(`***I just gave ${member.user.username} the ${gRole.name} role!***`)
+
+    message.delete();
 			
     }
 }
