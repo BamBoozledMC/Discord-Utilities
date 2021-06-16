@@ -20,6 +20,6 @@ Then Shift + Right click in the folder and select "Open Powershell window here" 
 If you do not see the ".json" at the end of the file name ignore using them in the file name, that will make the bot unable to find the config file
 6. Start the bot with 
 ```
-node bot.js
+node index.js
 ```
 If you encounter any issues, feel free to contact NightCrafter1#0882 in the discord that can be found above.

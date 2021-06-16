@@ -226,7 +226,7 @@ bot.on("guildDelete", async guild => {
 
 bot.snipes = new Map()
 bot.on('messageDelete', function(message, channel) {
-	if(!message.author || !message.content) return;
+	if(!message.author || !message.content && !message.attachments.size > 0 ) return;
 	bot.snipes.set(message.channel.id, {
 		content:message.content,
 		author:message.author.tag,

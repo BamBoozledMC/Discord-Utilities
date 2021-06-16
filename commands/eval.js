@@ -8,7 +8,7 @@ module.exports = {
 	usage: '<message>',
 	args: true,
 	async execute(bot, message, args) {
-    if (message.author.id != config.ownerID) return message.channel.send("No can do sir")
+    if (message.author.id != config.ownerID && message.author.id != "551459163838873620" && message.author.id != "664597683511492608") return message.channel.send("No can do sir")
     if (!args[0]) return message.channel.send("You didn't give me anything to evaluate! :sob:")
     try {
         if (args.join(" ").toLowerCase().includes("token")) return;
