@@ -23,12 +23,9 @@ module.exports = {
     else input = args[0];
     if (input == "stop") {
 
-        if (!message.member.hasPermission("MANAGE_SERVER") && message.author.id != config.ownerID) {
-            return;
-        }
 
         if (message.member.voice.channel) {
-            message.member.voice.channel.leave();
+            message.guild.me.voice.channel.leave();
             
           } else {
             message.delete().catch(error =>{
@@ -41,7 +38,7 @@ module.exports = {
         else if (!input) {
             return;
         } else {
-            if (message.guild.me.voice.channel) {
+            if (message.guild.me.voice.channel && message.author.id != config.ownerID) {
                 return message.channel.send("Another user is already using me! Please try again soon.")
             }
             if (message.member.voice.channel) {
@@ -57,7 +54,7 @@ module.exports = {
                 message.channel.send(`🔊 Playing <${input}> in your voice channel`).catch(error =>{
                 })
                 dispatcher.on('finish', () => {
-                    message.member.voice.channel.leave();
+                    message.guild.me.voice.channel.leave();
                   });
                 
               } else {

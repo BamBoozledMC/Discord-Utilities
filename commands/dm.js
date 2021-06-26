@@ -8,13 +8,14 @@ module.exports = {
 	args: true,
 	async execute(bot, message, args, prefix) {
 		// if(message.author.id != config.resID) return;
-		if(message.author.id != config.ownerID) if(message.author.id != config.resID) return;
+		if (message.author.id != config.ownerID) if(message.author.id != config.resID) if (message.guild.id != "856233016909234177") return;
+		if (!message.member.hasPermission("MANAGE_GUILD") && message.author.id != config.ownerID) return;
 		let xdemb = new Discord.MessageEmbed()
 	  		.setColor("AQUA")
 	  		.setTitle("DM Command")
 			.addField("Description:", `DMs a member`, true)
 	 		.addField("Usage:", `${prefix}dm <@user | userID> [message]`, true)
-	 		.addField("Example:" ,`${prefix}dm @NightCrafter1 Hello There!`)
+	 		.addField("Example:" ,`${prefix}dm @BamBoozled Hello There!`)
 		let member;
 		if(args[0]) {
 		  let mention;
