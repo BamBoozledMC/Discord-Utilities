@@ -22,7 +22,8 @@ module.exports = {
 		.setAuthor(message.author.tag, message.author.displayAvatarURL())
 		.setDescription(msgtosend)
 		.setColor("GREEN")
-		.setTitle("New suggestion:");
+		.setTitle("New suggestion:")
+		.setFooter(`Developed by ${config.myTag}`, config.myAvatar);
         
 		var Sentembed = await message.guild.channels.cache.get("856795318069886976").send(embed)
 

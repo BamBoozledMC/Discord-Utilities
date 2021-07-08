@@ -1,4 +1,5 @@
 const Discord = require ("discord.js");
+const config = require('../config.json');
 
 module.exports = {
 	name: 'help',
@@ -14,7 +15,7 @@ module.exports = {
 		.addField("Misc", `\`${prefix}ping\` Checks the bot's ping.\n\`${prefix}uptime\` Checks the bot's uptime.\n\`${prefix}say <message>\` Returns your message.\n\`${prefix}invite <args>\` Sends a link to either join the support server, or invite me to your server!\n\`${prefix}serverinfo\` Displays info about the current server.`)
 		.setDescription(`Here you can find info on every command!\n${message.guild.name}'s Current prefix is \`${prefix}\`\nUse ${prefix}prefix reset to reset your server's prefix to default.\n\n[] = Optional **|** <> = Required\n`)
 		.setThumbnail('https://cdn.discordapp.com/attachments/725983043520692256/725983097685934090/U_Blue_image.png')
-		.setFooter('Developed by BamBoozled#0882', 'https://cdn.discordapp.com/attachments/697781307433943130/720945852470001674/NightCrafter1.png')
+		.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 		.setColor('AQUA')
 		try {
 		await message.author.send(embed)

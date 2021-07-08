@@ -19,6 +19,7 @@ module.exports = {
 			.addField("Description:", `Delete a certain amount of messages.\n(Limited to 100 due to discord)`, true)
 	 		.addField("Usage:", `${prefix}clear [amount]`, true)
 	 		.addField("Example:" ,`${prefix}clear 10`)
+			.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 		  if(!args[0] || isNaN(args[0]) || args[0] > 100) return message.channel.send(xdemb);
 		  message.delete()
 		  await message.channel.bulkDelete(args[0], true)

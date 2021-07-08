@@ -15,7 +15,8 @@ if(!message.member.hasPermission("MANAGE_MESSAGES") && message.author.id != conf
     .setTitle("Unmute Command")
     .addField("Description:", `Unmute a member`, true)
     .addField("Usage:", `${prefix}unmute <@user | userID> [reason]`, true)
-    .addField("Example:" ,`${prefix}unmute @NightCrafter1 Early unmute ;)`)
+    .addField("Example:" ,`${prefix}unmute @BamBoozled Early unmute ;)`)
+    .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
     let member;
     if(args[0]) {
       let mention;

@@ -1,4 +1,5 @@
 const Discord = require ("discord.js");
+const config = require('../config.json');
 
 module.exports = {
 	name: 'serverinfo',
@@ -29,7 +30,7 @@ const verlvl = {
     .addField("Roles", message.guild.roles.cache.size, inline)
     .addField("Channels", message.guild.channels.cache.size, inline)
     .addField("You Joined", message.member.joinedAt)
-    .setFooter(`Created ${message.guild.createdAt}`);
+    .setFooter(`Created ${message.guild.createdAt}\nDeveloped by ${config.myTag}`, config.myAvatar);
 
     message.channel.send(serverembed).catch(error =>{
 			message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{

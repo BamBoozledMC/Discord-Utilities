@@ -15,7 +15,8 @@ module.exports = {
 	  .setTitle("Ban Command")
 	  .addField("Description:", `Ban a member`, true)
 	  .addField("Usage:", `${prefix}ban <@user | userID> [reason]`, true)
-	  .addField("Example:" ,`${prefix}ban @NightCrafter1 spam`)
+	  .addField("Example:" ,`${prefix}ban @BamBoozled spam`)
+	  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 	
 	  let member;
 	  if(args[0]) {

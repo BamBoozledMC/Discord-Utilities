@@ -16,7 +16,8 @@ module.exports = {
   .setTitle("Mute Command")
   .addField("Description:", `Mute a member`, true)
   .addField("Usage:", `${prefix}mute <@user | userID> [reason]`, true)
-  .addField("Example:" ,`${prefix}mute @NightCrafter1 advertising`)
+  .addField("Example:" ,`${prefix}mute @BamBoozled advertising`)
+  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
   let member;
             if(args[0]) {
               let mention;

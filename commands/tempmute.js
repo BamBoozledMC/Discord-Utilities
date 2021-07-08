@@ -18,7 +18,8 @@ module.exports = {
   .setTitle("Tempmute Command")
   .addField("Description:", `Tempmute a member`, true)
   .addField("Usage:", `${prefix}tempmute <@user | userID> <time> [reason]`, true)
-  .addField("Example:" ,`${prefix}tempmute @NightCrafter1 1h spamming`)
+  .addField("Example:" ,`${prefix}tempmute @BamBoozled 1h spamming`)
+  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
   let member;
             if(args[0]) {
               let mention;

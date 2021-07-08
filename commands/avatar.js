@@ -1,4 +1,5 @@
 const Discord = require ("discord.js");
+const config = require('../config.json');
 
 module.exports = {
 	name: 'avatar',
@@ -52,6 +53,7 @@ module.exports = {
 .setTitle(`${member.user.username}'s Avatar`)
 .setImage(`${member.user.displayAvatarURL({ dynamic: true, size: 1024 })}`)
 .setColor('#b600ff')
+.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
     return message.channel.send(mentionedavatar).catch(error =>{
         message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{
         })
@@ -61,6 +63,7 @@ let executeravatar = new Discord.MessageEmbed()
 .setTitle(`Your Avatar`)
 .setImage(`${message.author.displayAvatarURL({ dynamic: true, size: 1024 })}`)
 .setColor('#b600ff')
+.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 return message.channel.send(executeravatar).catch(error =>{
     message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{
     })

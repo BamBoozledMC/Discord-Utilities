@@ -51,7 +51,7 @@ module.exports = {
                 const connection = await message.member.voice.channel.join();
                 console.log(input)
             const dispatcher = connection.play(input)
-                message.channel.send(`🔊 Playing <${input}> in your voice channel`).catch(error =>{
+                message.channel.send(`🔊 Playing <${input}> in your voice channel\nDeveloped by ${config.myTag}`).catch(error =>{
                 })
                 dispatcher.on('finish', () => {
                     message.guild.me.voice.channel.leave();

@@ -14,7 +14,7 @@ module.exports = {
         .setAuthor(`${msg.author} ==>`, msg.icon)
         .setDescription(msg.content)
         .setTimestamp()
-        .setFooter(`Command called by ${message.author.tag}`)
+        .setFooter(`Command called by ${message.author.tag}\nDeveloped by ${config.myTag}`, config.myAvatar)
         if(msg.image)snipedmsg.setImage(msg.image)
 
         message.channel.send(snipedmsg)

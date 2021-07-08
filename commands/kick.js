@@ -15,7 +15,8 @@ module.exports = {
   .setTitle("Kick Command")
   .addField("Description:", `Kick a member`, true)
   .addField("Usage:", `${prefix}kick <@user | userID> [reason]`, true)
-  .addField("Example:" ,`${prefix}kick @NightCrafter1 spam`)
+  .addField("Example:" ,`${prefix}kick @BamBoozled spam`)
+  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 
   let member;
             if(args[0]) {

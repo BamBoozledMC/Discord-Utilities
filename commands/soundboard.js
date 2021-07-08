@@ -840,8 +840,8 @@ module.exports = {
                     .setTitle('SoundBoard')
                     .addField("Usage:", `${prefix}soundboard <soundeffectname>\nAliases: \`${prefix}sfx | ${prefix}soundfx | ${prefix}soundeffects | ${prefix}sb\``)
                     .addField("Available Sound Effects:", "`airhorn`\n`bruh`\n`cena`\n`cricket`\n`error`\n`fakecall`\n`fakejoin`\n`fakeknocking`\n`fakeleave`\n`fakeping`\n`fbiopenup`\n`freerealestate`\n`law&order`\n`metalgear`\n`noice`\n`numberone`\n`nootnoot`\n`nope`\n`oof`\n`sadtrombone`\n`timetostop`\n`vsauce`\n`wow`\n`yeet`")
-                    .setFooter('Developed by BamBoozled#0882', 'https://cdn.discordapp.com/attachments/697781307433943130/720945852470001674/NightCrafter1.png')
                     .setColor('AQUA')
+                    .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
                     message.channel.send(invitehelp).catch(error =>{
                     })}
 

@@ -22,7 +22,8 @@ module.exports = {
         .setTitle("Eval")
         .addField("Input:", `\`\`\`js\n${beautify(args.join(" "), { format: "js" })}\n\`\`\``)
         .addField("Output:", `\`\`\`${evaluated}\`\`\``)
-        .addField("Type of:", typeof(evaluated));
+        .addField("Type of:", typeof(evaluated))
+        .setFooter(`Developed by ${config.myTag}`, config.myAvatar);
         var Evalembed = await message.channel.send(embed)
 
         Evalembed.react('✅').then(() => Evalembed.react('❌'));

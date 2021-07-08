@@ -18,7 +18,8 @@ module.exports = {
 	  		.setTitle("AddRole Command")
 			.addField("Description:", `Adds a role to a user`, true)
 	 		.addField("Usage:", `${prefix}addrole <@user | userID> <@role>`, true)
-	 		.addField("Example:" ,`${prefix}addrole @NightCrafter1 @Moderator`)
+	 		.addField("Example:" ,`${prefix}addrole @BamBoozled @Moderator`)
+			.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 		let member;
 		if(args[0]) {
 		  let mention;

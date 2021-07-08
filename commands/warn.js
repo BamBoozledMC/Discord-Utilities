@@ -14,7 +14,8 @@ module.exports = {
   .setTitle("Warn Command")
   .addField("Description:", `Warn a member`, true)
   .addField("Usage:", `${prefix}warn <@user | userID> [reason]`, true)
-  .addField("Example:" ,`${prefix}warn @NightCrafter1 spam`)
+  .addField("Example:" ,`${prefix}warn @BamBoozled spam`)
+  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
   
   let member;
             if(args[0]) {

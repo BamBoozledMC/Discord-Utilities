@@ -18,6 +18,7 @@ module.exports = {
 			.addField("Description:", `Changes a channels slowmode\n(Maximum 6h) `, true)
 	 		.addField("Usage:", `${prefix}slowmode <time>`, true)
             .addField("Example:" ,`${prefix}slowmode 15`)
+            .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
             let time = args[0]
             if(!time) return message.channel.send(xdemb)
             if(time.endsWith("s")) time = time.slice(0, -1);

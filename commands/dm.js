@@ -16,6 +16,7 @@ module.exports = {
 			.addField("Description:", `DMs a member`, true)
 	 		.addField("Usage:", `${prefix}dm <@user | userID> [message]`, true)
 	 		.addField("Example:" ,`${prefix}dm @BamBoozled Hello There!`)
+			.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 		let member;
 		if(args[0]) {
 		  let mention;

@@ -16,6 +16,7 @@ let xdemb = new Discord.MessageEmbed()
 .addField("Description:", `Unban a member`, true)
 .addField("Usage:", `${prefix}unban <userID> [reason]`, true)
 .addField("Example:" ,`${prefix}unban 562382703190867972 because he shouldn't be banned`)
+.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 
         if (!args[0]) return message.channel.send(xdemb)
       

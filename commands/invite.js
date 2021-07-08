@@ -1,4 +1,5 @@
 const Discord = require ("discord.js");
+const config = require('../config.json');
 
 module.exports = {
 	name: 'invite',
@@ -14,7 +15,7 @@ module.exports = {
 		let embed = new Discord.MessageEmbed()
 		.setTitle('Add me to your Server')
 		.setDescription('Use this [**Link**](https://discord.com/api/oauth2/authorize?client_id=645970627542515733&permissions=536210519&redirect_uri=https%3A%2F%2Fdiscord.gg%2FpXCkAqk&response_type=code&scope=bot%20guilds) to invite me to your server!')
-		.setFooter('Developed by BamBoozled#0882', 'https://cdn.discordapp.com/attachments/697781307433943130/720945852470001674/NightCrafter1.png')
+		.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 		.setColor('AQUA')
 		message.channel.send(embed).catch(error =>{
 			message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{
@@ -25,7 +26,7 @@ module.exports = {
 			let embed2 = new Discord.MessageEmbed()
 			.setTitle('Join our Support Server')
 			.setDescription('Join our Support Server [**here**](https://discord.gg/pXCkAqk) if you have any issues, require assistance or have any questions.')
-			.setFooter('Developed by BamBoozled#0882', 'https://cdn.discordapp.com/attachments/697781307433943130/720945852470001674/NightCrafter1.png')
+			.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 			.setColor('AQUA')
 			message.channel.send(embed2).catch(error =>{
 				message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{
@@ -36,7 +37,7 @@ module.exports = {
 				.setTitle('Valid Types')
 				.addField("Bot:", "Sends a link to invite me to your server!")
 				.addField("Support:", "Sends a link to join our Support Server")
-				.setFooter('Developed by BamBoozled#0882', 'https://cdn.discordapp.com/attachments/697781307433943130/720945852470001674/NightCrafter1.png')
+				.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 				.setColor('#ff5c00')
 				message.channel.send(invitehelp).catch(error =>{
 					message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{
