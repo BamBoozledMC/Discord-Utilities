@@ -13,7 +13,7 @@
     "beautify": "0.0.8",
     "discord-reply": "^0.1.2",
     "discord.js": "^12.5.3",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "lodash.update": "^4.10.2",
     "minecraft-server-util": "^2.1.0",
     "ms": "^2.1.2",
