@@ -1,5 +1,6 @@
 const config = require('./config.json');
 const Discord = require ("discord.js");
+require('discord-reply');
 const bot = new Discord.Client ({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 const db = require('quick.db');
 

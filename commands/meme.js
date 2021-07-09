@@ -1,5 +1,5 @@
 const config = require('../config.json');
-const {Discord, MessageAttachment} = require ("discord.js");
+const {Discord, MessageAttachment, MessageEmbed} = require ("discord.js");
 const randomPuppy = require('random-puppy')
 const talkedRecently = new Set();
 
@@ -10,30 +10,47 @@ module.exports = {
 	usage: '<message>',
 	args: true,
 	async execute(bot, message, args) {
-        message.channel.startTyping()
-        .catch(error =>{
-        })
+        if(!message.guild.me.permissionsIn(message.channel).has("ATTACH_FILES")) return message.lineReply(":x: I dont have permissions to Attach Files in this channel!")
+        let generating = await message.lineReply("<a:loading:735109207547707523> Generating meme, Please be patient.")
         const subReddits = [
             'meme',
             'memes',
-            'me_irl',
-            '2meirl4meirl',
             'dankmemes',
-            'techsupportanimals',
-            'wholesomememes',
-            'MemeEconomy',
             'ihadastroke',
         ]
         const meme = subReddits[Math.floor(Math.random() * subReddits.length)]
         const img = await randomPuppy(meme)
-        const memepic = new MessageAttachment(img)
-        let msg = await message.channel.send(`*Please note: I am not responsible for any "Inappropriate" content,*\n*If you believe something is inappropriate simply react to the :x: below.\n(Reaction will be automatically removed after 30 seconds)*\n\`\`\`https://www.reddit.com/r/${meme}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${img}\`\`\``, memepic).catch(error =>{
-			message.channel.send(":x: I dont have permissions to Attach Files in this channel!\nIf I already have the correct permissions, the file i attempted to upload was too big. ;)").catch(error =>{
+        if (!img.endsWith(".mp4")) {
+        let memepic = new MessageEmbed()
+        .setTitle(`r/${meme}`)
+        .setURL(`https://www.reddit.com/r/${meme}`)
+        .setColor("AQUA")
+        .setImage(img)
+        .setDescription(`If the content does not load use this link.\n${img}`)
+
+        let msg = await generating.edit("", memepic).catch(error =>{
+			generating.edit(":x: The file I attempted to upload was too large.").catch(error =>{
             })
         })
-        message.channel.stopTyping()
+    } else {
+        const memepic2 = new MessageAttachment(img)
+        let memepic = new MessageEmbed()
+        .setTitle(`r/${meme}`)
+        .setURL(`https://www.reddit.com/r/${meme}`)
+        .setColor("AQUA")
+        .setDescription(`Content is a video, Uploading as an attachment...\n${img}`)
 
-        msg.react('❌');
+        await generating.edit("", memepic)
+        message.channel.startTyping()
+        let msg = await message.lineReplyNoMention(memepic2).catch(error =>{
+			generating.edit(":x: The file I attempted to upload was too large.").catch(error =>{
+            })
+            message.channel.stopTyping()
+        });
+        message.channel.stopTyping()
+    }
+
+        /* msg.react('❌');
 
         const filter = (reaction, user) => {
 	        return ['❌'].includes(reaction.emoji.name) && user.id !== bot.user.id;
@@ -57,7 +74,7 @@ try {
 } catch (error) {
 	console.error('Failed to remove reactions.');
 }
-    });
+    });  */
         // message.channel.send(":x: Sorry, this command is currently disabled. For more information please contact `NightCrafter1#0882`")
     }
     }

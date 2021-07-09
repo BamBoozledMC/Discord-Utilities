@@ -3,9 +3,9 @@ const {Discord, MessageAttachment} = require ("discord.js");
 const talkedRecently = new Set();
 
 module.exports = {
-	name: 'smh',
-    descrption: 'sends the smh',
-    aliases: ['shakemyhead'],
+	name: 'nito',
+    descrption: 'sends nito',
+    aliases: ['nitto', 'nitro'],
 	usage: '<message>',
 	args: true,
 	async execute(bot, message, args) {
@@ -15,7 +15,7 @@ module.exports = {
                 message.delete({timeout:3000})
             });
         } else {
-    const picture = new MessageAttachment('./memes/SMH.jpg');
+    const picture = new MessageAttachment('./memes/nito.jpg');
     await message.lineReplyNoMention(picture).catch(error =>{
         message.author.send(":x: I dont have permissions to send messages/Attach Files in that channel!").catch(error =>{
         })
