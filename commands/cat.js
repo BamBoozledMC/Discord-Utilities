@@ -4,27 +4,22 @@ const randomPuppy = require('random-puppy')
 const talkedRecently = new Set();
 
 module.exports = {
-	name: 'meme',
-    descrption: 'meme',
-    aliases: ['memes'],
+	name: 'cat',
+    descrption: 'send some cute cat pics',
+    aliases: ['cats'],
 	usage: '<message>',
 	args: true,
 	async execute(bot, message, args) {
         if(!message.guild.me.permissionsIn(message.channel).has("ATTACH_FILES")) return message.lineReply(":x: I dont have permissions to Attach Files in this channel!")
-        let generating = await message.lineReply("<a:loading:735109207547707523> Generating meme, Please be patient.")
-        const subReddits = [
-            'meme',
-            'memes',
-            'dankmemes',
-            'ihadastroke',
-            'me_irl',
-        ]
-        const meme = subReddits[Math.floor(Math.random() * subReddits.length)]
-        const img = await randomPuppy(meme)
-        if (!img.endsWith(".mp4")) {
+
+        const img = await randomPuppy('cats')
+        if (img.endsWith(".mp4")) return require('./cat.js').execute(bot, message, args);
+        let generating = await message.lineReply("<a:loading:735109207547707523> Generating cat, Please be patient.")
+
+        
         let memepic = new MessageEmbed()
-        .setTitle(`r/${meme}`)
-        .setURL(`https://www.reddit.com/r/${meme}`)
+        .setTitle(`Cats!`)
+        .setURL(`https://www.reddit.com/r/cats`)
         .setColor("AQUA")
         .setImage(img)
         .setDescription(`If the content does not load use this link.\n${img}`)
@@ -34,24 +29,6 @@ module.exports = {
 			generating.edit(":x: The file I attempted to upload was too large.").catch(error =>{
             })
         })
-    } else {
-        const memepic2 = new MessageAttachment(img)
-        let memepic = new MessageEmbed()
-        .setTitle(`r/${meme}`)
-        .setURL(`https://www.reddit.com/r/${meme}`)
-        .setColor("AQUA")
-        .setDescription(`Content is a video, Uploading as an attachment...\n${img}`)
-        .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
-
-        await generating.edit("", memepic)
-        message.channel.startTyping()
-        let msg = await message.lineReplyNoMention(memepic2).catch(error =>{
-			generating.edit(":x: The file I attempted to upload was too large.").catch(error =>{
-            })
-            message.channel.stopTyping()
-        });
-        message.channel.stopTyping()
-    }
 
         /* msg.react('❌');
 
