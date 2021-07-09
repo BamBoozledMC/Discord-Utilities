@@ -27,6 +27,7 @@ module.exports = {
         .setColor("AQUA")
         .setImage(img)
         .setDescription(`If the content does not load use this link.\n${img}`)
+        .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 
         let msg = await generating.edit("", memepic).catch(error =>{
 			generating.edit(":x: The file I attempted to upload was too large.").catch(error =>{
@@ -39,6 +40,7 @@ module.exports = {
         .setURL(`https://www.reddit.com/r/${meme}`)
         .setColor("AQUA")
         .setDescription(`Content is a video, Uploading as an attachment...\n${img}`)
+        .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
 
         await generating.edit("", memepic)
         message.channel.startTyping()
