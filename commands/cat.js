@@ -11,15 +11,19 @@ module.exports = {
 	args: true,
 	async execute(bot, message, args) {
         if(!message.guild.me.permissionsIn(message.channel).has("ATTACH_FILES")) return message.lineReply(":x: I dont have permissions to Attach Files in this channel!")
-
-        const img = await randomPuppy('cats')
+        const subReddits = [
+            'cat',
+            'cats',
+        ]
+        const cat = subReddits[Math.floor(Math.random() * subReddits.length)]
+        const img = await randomPuppy(cat)
         if (img.endsWith(".mp4")) return require('./cat.js').execute(bot, message, args);
         let generating = await message.lineReply("<a:loading:735109207547707523> Generating cat, Please be patient.")
 
         
         let memepic = new MessageEmbed()
         .setTitle(`Cats!`)
-        .setURL(`https://www.reddit.com/r/cats`)
+        .setURL(`https://www.reddit.com/r/${cat}`)
         .setColor("AQUA")
         .setImage(img)
         .setDescription(`If the content does not load use this link.\n${img}`)
