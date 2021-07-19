@@ -11,7 +11,8 @@ git clone https://github.com/NightCrafter1/Discord-Utilities
 ```
 3. Extract the ZIP file.
 4. Install Dependencies:    
-If you are installing on **WINDOWS** please open powershell as **Administrator** and run ``` npm install --global --production windows-build-tools@4.0.0 ```    
+If you are installing on **WINDOWS** please download [Microsoft Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16#)    
+Open the file, the installer will start downloading. Once finished, a window titled "Visual Studio Installer" should appear. Under the workloads tab Make sure to select **Desktop development with C++** and then click install. ![image](https://i.stack.imgur.com/S3RgX.png)
 Wait for it to install.    
 Once installed, in the same window run ``` npm config set msvs_version 2017 ```    
 Then Shift + Right click in the folder and select "Open Powershell window here" and run ``` npm install ```     
