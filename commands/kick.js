@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'kicks mentioned user from the server',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
     
     if (!message.member.hasPermission("KICK_MEMBERS") && message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!");
     if(!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send(":x: I do not have enough permissions to do this!\nPlease make sure i have the \"KICK_MEMBERS\" permission.")
@@ -16,7 +16,7 @@ module.exports = {
   .addField("Description:", `Kick a member`, true)
   .addField("Usage:", `${prefix}kick <@user | userID> [reason]`, true)
   .addField("Example:" ,`${prefix}kick @BamBoozled spam`)
-  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+  .setFooter(`Developed by ${myTag}`, myAvatar)
 
   let member;
             if(args[0]) {

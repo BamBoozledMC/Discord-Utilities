@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'Shows last deleted message',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args) {
+	async execute(bot, message, args, myUsername, myTag, myAvatar) {
         const msg = bot.snipes.get(message.channel.id)
         if(!msg) return message.channel.send("I couldn't find any messages to snipe!");
         const snipedmsg = new Discord.MessageEmbed()
@@ -14,7 +14,7 @@ module.exports = {
         .setAuthor(`${msg.author} ==>`, msg.icon)
         .setDescription(msg.content)
         .setTimestamp()
-        .setFooter(`Command called by ${message.author.tag}\nDeveloped by ${config.myTag}`, config.myAvatar)
+        .setFooter(`Command called by ${message.author.tag}\nDeveloped by ${myTag}`, myAvatar)
         if(msg.image)snipedmsg.setImage(msg.image)
 
         message.channel.send(snipedmsg)

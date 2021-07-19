@@ -7,7 +7,7 @@ module.exports = {
   descrption: 'Mutes mentioned user in the server',
 	usage: '',
 	args: false,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         //!mute @user 1s/m/h/d
   try {
   if(!message.member.hasPermission("MANAGE_MESSAGES") && message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!");
@@ -17,7 +17,7 @@ module.exports = {
   .addField("Description:", `Mute a member`, true)
   .addField("Usage:", `${prefix}mute <@user | userID> [reason]`, true)
   .addField("Example:" ,`${prefix}mute @BamBoozled advertising`)
-  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+  .setFooter(`Developed by ${myTag}`, myAvatar)
   let member;
             if(args[0]) {
               let mention;

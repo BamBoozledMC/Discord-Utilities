@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'unbans mentioned user from the server',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
     try{
 if (!message.member.hasPermission("BAN_MEMBERS") && message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!");
 
@@ -16,7 +16,7 @@ let xdemb = new Discord.MessageEmbed()
 .addField("Description:", `Unban a member`, true)
 .addField("Usage:", `${prefix}unban <userID> [reason]`, true)
 .addField("Example:" ,`${prefix}unban 562382703190867972 because he shouldn't be banned`)
-.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+.setFooter(`Developed by ${myTag}`, myAvatar)
 
         if (!args[0]) return message.channel.send(xdemb)
       

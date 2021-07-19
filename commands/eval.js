@@ -7,7 +7,7 @@ module.exports = {
     descrption: 'Evaluates my code',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args) {
+	async execute(bot, message, args, myUsername, myTag, myAvatar) {
     if (message.author.id != config.ownerID && message.author.id != "551459163838873620" && message.author.id != "664597683511492608") return message.channel.send("No can do sir")
     if (!args[0]) return message.channel.send("You didn't give me anything to evaluate! :sob:")
     try {
@@ -23,7 +23,7 @@ module.exports = {
         .addField("Input:", `\`\`\`js\n${beautify(args.join(" "), { format: "js" })}\n\`\`\``)
         .addField("Output:", `\`\`\`${evaluated}\`\`\``)
         .addField("Type of:", typeof(evaluated))
-        .setFooter(`Developed by ${config.myTag}`, config.myAvatar);
+        .setFooter(`Developed by ${myTag}`, myAvatar);
         var Evalembed = await message.channel.send(embed)
 
         Evalembed.react('✅').then(() => Evalembed.react('❌'));

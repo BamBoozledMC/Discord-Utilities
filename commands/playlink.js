@@ -8,7 +8,7 @@ module.exports = {
     aliases: ['pl',],
 	usage: '!ping',
 	args: false,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         if (message.author.id != config.ownerID) {
         if (talkedRecently.has(message.author.id)) {
             return message.reply("Please wait 10 seconds before using this command again!")
@@ -51,7 +51,7 @@ module.exports = {
                 const connection = await message.member.voice.channel.join();
                 console.log(input)
             const dispatcher = connection.play(input)
-                message.channel.send(`🔊 Playing <${input}> in your voice channel\nDeveloped by ${config.myTag}`).catch(error =>{
+                message.channel.send(`🔊 Playing <${input}> in your voice channel\nDeveloped by ${myTag}`).catch(error =>{
                 })
                 dispatcher.on('finish', () => {
                     message.guild.me.voice.channel.leave();

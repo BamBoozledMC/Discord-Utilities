@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'warns mentioned user for the provided reason',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
     if(!message.member.hasPermission("MANAGE_MESSAGES") && message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!");
   let reason = args.slice(1).join(' ');
   let xdemb = new Discord.MessageEmbed()
@@ -15,7 +15,7 @@ module.exports = {
   .addField("Description:", `Warn a member`, true)
   .addField("Usage:", `${prefix}warn <@user | userID> [reason]`, true)
   .addField("Example:" ,`${prefix}warn @BamBoozled spam`)
-  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+  .setFooter(`Developed by ${myTag}`, myAvatar)
   
   let member;
             if(args[0]) {

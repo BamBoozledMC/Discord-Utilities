@@ -9,7 +9,7 @@ module.exports = {
     aliases: ['cats'],
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args) {
+	async execute(bot, message, args, myUsername, myTag, myAvatar) {
         if(!message.guild.me.permissionsIn(message.channel).has("ATTACH_FILES")) return message.lineReply(":x: I dont have permissions to Attach Files in this channel!")
         const subReddits = [
             'cat',
@@ -27,7 +27,7 @@ module.exports = {
         .setColor("AQUA")
         .setImage(img)
         .setDescription(`If the content does not load use this link.\n${img}`)
-        .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+        .setFooter(`Developed by ${myTag}`, myAvatar)
 
         let msg = await generating.edit("", memepic).catch(error =>{
 			generating.edit(":x: The file I attempted to upload was too large.").catch(error =>{

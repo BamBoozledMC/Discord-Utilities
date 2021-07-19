@@ -7,7 +7,7 @@ module.exports = {
     aliases: ['ar', 'addr', 'roleadd'],
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
 		// if(message.author.id != config.resID) return;
 		//if(message.author.id != config.ownerID) if(message.author.id != config.resID) return;
 
@@ -19,7 +19,7 @@ module.exports = {
 			.addField("Description:", `Adds a role to a user`, true)
 	 		.addField("Usage:", `${prefix}addrole <@user | userID> <@role>`, true)
 	 		.addField("Example:" ,`${prefix}addrole @BamBoozled @Moderator`)
-			.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+			.setFooter(`Developed by ${myTag}`, myAvatar)
 		let member;
 		if(args[0]) {
 		  let mention;

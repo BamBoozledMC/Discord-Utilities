@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'DMs mentioned user with your message',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
 		// if(message.author.id != config.resID) return;
 		if (message.author.id != config.ownerID) if(message.author.id != config.resID) if (message.guild.id != "856233016909234177") return;
 		if (!message.member.hasPermission("MANAGE_GUILD") && message.author.id != config.ownerID) return;
@@ -16,7 +16,7 @@ module.exports = {
 			.addField("Description:", `DMs a member`, true)
 	 		.addField("Usage:", `${prefix}dm <@user | userID> [message]`, true)
 	 		.addField("Example:" ,`${prefix}dm @BamBoozled Hello There!`)
-			.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+			.setFooter(`Developed by ${myTag}`, myAvatar)
 		let member;
 		if(args[0]) {
 		  let mention;

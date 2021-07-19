@@ -66,6 +66,7 @@ console.log("| |_| | \\__ \\ (_| (_) | | | (_| | | |_| | |_| | | | |_| |  __/\\_
 console.log("|____/|_|___/\\___\\___/|_|  \\__,_|  \\___/ \\__|_|_|_|\\__|_|\\___||___/")
 console.log(" ")
 console.log("Loaded all commands. Bot is ready to use!")
+console.log("Created by BamBoozled#0882")
 console.log(`Watching ${bot.guilds.cache.size} Servers and ${bot.users.cache.size} Users!`)	
 	
 let i = 0;
@@ -93,6 +94,10 @@ if(!prefixRegex.test(message.content)) return;
 const [, matchedPrefix] = message.content.match(prefixRegex);
 	if (message.author.bot) return;
 
+	let myUsername = "BamBoozled";
+	let myTag = "BamBoozled#0882";
+	let myAvatar = "http://bamboozledmc.ddns.net/BamBoozled.png";
+
 	const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 	let mentionembed = new Discord.MessageEmbed()
@@ -100,6 +105,7 @@ const [, matchedPrefix] = message.content.match(prefixRegex);
 	.setTitle("Discord Utilities")
 	.setThumbnail('https://cdn.discordapp.com/attachments/725983043520692256/725983097685934090/U_Blue_image.png')
 	.setDescription(`Hey there! My prefix for **${message.guild.name}** is \`${prefix}\`\nFor a list of commands just type \`${prefix}help\``)
+	.setFooter(`Developed by ${myTag}`, myAvatar)
 	
 	if(!commandName && !message.content.startsWith(prefix)) return message.channel.send(mentionembed);
 
@@ -108,8 +114,8 @@ const [, matchedPrefix] = message.content.match(prefixRegex);
 		let data = db.get(`prefix.${message.guild.id}`);
 		if (args[0] === "reset") {
 			await db.delete(`prefix.${message.guild.id}`);
-			return message.channel.send(`The server prefix for **${message.guild.name}** has been reset!`);
-			console.log(`Prefix for ${message.guild.name} was reset.`)
+			message.channel.send(`The server prefix for **${message.guild.name}** has been reset!`);
+			return console.log(`The prefix for ${message.guild.name} was reset.`);
 		}
 		let symbol = args[0];
 		let nonedefined = new Discord.MessageEmbed()
@@ -122,8 +128,10 @@ const [, matchedPrefix] = message.content.match(prefixRegex);
 		if (!symbol) return message.channel.send(nonedefined)
 
 		db.set(`prefix.${message.guild.id}`, symbol);
-		return message.channel.send(`The server prefix for **${message.guild.name}** has been updated to: \`${symbol}\``).then; console.log(`The prefix for ${message.guild.name} was updated to: ${symbol}`)
+		message.channel.send(`The server prefix for **${message.guild.name}** has been updated to: \`${symbol}\``)
+		return console.log(`The prefix for ${message.guild.name} was updated to: ${symbol}`);
 	}
+
 
 
 	const command = bot.commands.get(commandName) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
@@ -131,10 +139,10 @@ const [, matchedPrefix] = message.content.match(prefixRegex);
 	if (message.channel.type == "dm") return;
 	try {
 		if(!message.guild.me.hasPermission("SEND_MESSAGES")) return message.author.send(":x: I do not have permission to send messages in this channel!\nPlease make sure i have the \"SEND_MESSAGES\" permission in the channel overrides/permissions")
-		command.execute(bot, message, args, prefix);
+		command.execute(bot, message, args, prefix, myUsername, myTag, myAvatar);
 	} catch (error) {
 		console.error(error);
-		message.author.send(`:x: There was an error trying to execute that command. \`${error}\`\n For more help please contact NightCrafter1#0882`);
+		message.author.send(`:x: There was an error trying to execute that command. \`${error}\`\n For more help please contact BamBoozled#0882`);
 	}
 
 

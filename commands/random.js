@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["rando", "rnumber", "rn"],
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args) {
+	async execute(bot, message, args, myUsername, myTag, myAvatar) {
         const rando_number = [
             '1',
             '2',

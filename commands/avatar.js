@@ -7,7 +7,7 @@ module.exports = {
     aliases: ['pfp'],
     usage: '',
 	args: true,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
     if (args[0]) {
         let member;
         if(args[0]) {
@@ -53,7 +53,7 @@ module.exports = {
 .setTitle(`${member.user.username}'s Avatar`)
 .setImage(`${member.user.displayAvatarURL({ dynamic: true, size: 1024 })}`)
 .setColor('#b600ff')
-.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+.setFooter(`Developed by ${myTag}`, myAvatar)
     return message.channel.send(mentionedavatar).catch(error =>{
         message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{
         })
@@ -63,7 +63,7 @@ let executeravatar = new Discord.MessageEmbed()
 .setTitle(`Your Avatar`)
 .setImage(`${message.author.displayAvatarURL({ dynamic: true, size: 1024 })}`)
 .setColor('#b600ff')
-.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+.setFooter(`Developed by ${myTag}`, myAvatar)
 return message.channel.send(executeravatar).catch(error =>{
     message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{
     })

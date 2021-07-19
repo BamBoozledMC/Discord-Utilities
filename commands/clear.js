@@ -7,7 +7,7 @@ module.exports = {
 	aliases: ['clean', 'purge'],
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
 	try {
 		
 	//if(message.author.id == "442702793002844170") return message.channel.send("Oh- Hey there <@442702793002844170>!\nI'ma have to deny you from using this command as you seem to be using it alot.")
@@ -19,7 +19,7 @@ module.exports = {
 			.addField("Description:", `Delete a certain amount of messages.\n(Limited to 100 due to discord)`, true)
 	 		.addField("Usage:", `${prefix}clear [amount]`, true)
 	 		.addField("Example:" ,`${prefix}clear 10`)
-			.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+			.setFooter(`Developed by ${myTag}`, myAvatar)
 		  if(!args[0] || isNaN(args[0]) || args[0] > 100) return message.channel.send(xdemb);
 		  message.delete()
 		  await message.channel.bulkDelete(args[0], true)

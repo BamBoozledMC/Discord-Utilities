@@ -7,7 +7,7 @@ module.exports = {
     descrption: 'Returns your message',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args) {
+	async execute(bot, message, args, myUsername, myTag, myAvatar) {
         if (talkedRecently.has(message.author.id)) {
             message.reply("Please wait 30 seconds before using this command again!")
             .then(message => {

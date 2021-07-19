@@ -8,7 +8,7 @@ module.exports = {
     aliases: ['soundfx', 'soundeffects', 'sb', 'sfx',],
 	usage: '!ping',
 	args: false,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         if (message.author.id != config.ownerID) {
         if (talkedRecently.has(message.author.id)) {
             return message.reply("Please wait 10 seconds before using this command again!")
@@ -841,7 +841,7 @@ module.exports = {
                     .addField("Usage:", `${prefix}soundboard <soundeffectname>\nAliases: \`${prefix}sfx | ${prefix}soundfx | ${prefix}soundeffects | ${prefix}sb\``)
                     .addField("Available Sound Effects:", "`airhorn`\n`bruh`\n`cena`\n`cricket`\n`error`\n`fakecall`\n`fakejoin`\n`fakeknocking`\n`fakeleave`\n`fakeping`\n`fbiopenup`\n`freerealestate`\n`law&order`\n`metalgear`\n`noice`\n`numberone`\n`nootnoot`\n`nope`\n`oof`\n`sadtrombone`\n`timetostop`\n`vsauce`\n`wow`\n`yeet`")
                     .setColor('AQUA')
-                    .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+                    .setFooter(`Developed by ${myTag}`, myAvatar)
                     message.channel.send(invitehelp).catch(error =>{
                     })}
 

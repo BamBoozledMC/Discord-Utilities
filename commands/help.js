@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'Help Page',
 	usage: '',
 	args: false,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         let embed = new Discord.MessageEmbed()
 		.setTitle('Help Page')
 
@@ -44,7 +44,7 @@ module.exports = {
 
 		.setDescription(`Here you can find info on every command!\n${message.guild.name}'s Current prefix is \`${prefix}\`\nUse ${prefix}prefix reset to reset your server's prefix to default.\n\n[] = Optional **|** <> = Required\n`)
 		.setThumbnail('https://cdn.discordapp.com/attachments/725983043520692256/725983097685934090/U_Blue_image.png')
-		.setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+		.setFooter(`Developed by ${myTag}`, myAvatar)
 		.setColor('AQUA')
 		try {
 		await message.author.send(embed)

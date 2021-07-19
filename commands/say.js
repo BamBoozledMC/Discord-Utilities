@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'Returns your message',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args) {
+	async execute(bot, message, args, myUsername, myTag, myAvatar) {
 		if (message.author.bot) return;
 		if (message.content.includes("@everyone"))  return;
 		if (message.content.includes("@here")) return;

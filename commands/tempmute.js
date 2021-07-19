@@ -9,7 +9,7 @@ module.exports = {
   aliases: ['tmute'],
 	usage: '',
 	args: false,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         //!mute @user 1s/m/h/d
   try {
   if(!message.member.hasPermission("MANAGE_MESSAGES") && message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!");
@@ -19,7 +19,7 @@ module.exports = {
   .addField("Description:", `Tempmute a member`, true)
   .addField("Usage:", `${prefix}tempmute <@user | userID> <time> [reason]`, true)
   .addField("Example:" ,`${prefix}tempmute @BamBoozled 1h spamming`)
-  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+  .setFooter(`Developed by ${myTag}`, myAvatar)
   let member;
             if(args[0]) {
               let mention;

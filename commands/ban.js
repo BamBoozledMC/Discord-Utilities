@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'bans mentioned user from the server',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, prefix) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         if (!message.member.hasPermission("BAN_MEMBERS") && message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!");
 		if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send(":x: I do not have enough permissions to do this!\nPlease make sure i have the \"BAN_MEMBERS\" permission.")
 		// if(!message.guild.me.hasPermission("SEND_MESSAGES")) return message.author.send(":x: I do not have permission to send messages in this channel!\nPlease make sure i have the \"SEND_MESSAGES\" permission in the channel overrides/permissions")
@@ -16,7 +16,7 @@ module.exports = {
 	  .addField("Description:", `Ban a member`, true)
 	  .addField("Usage:", `${prefix}ban <@user | userID> [reason]`, true)
 	  .addField("Example:" ,`${prefix}ban @BamBoozled spam`)
-	  .setFooter(`Developed by ${config.myTag}`, config.myAvatar)
+	  .setFooter(`Developed by ${myTag}`, myAvatar)
 	
 	  let member;
 	  if(args[0]) {

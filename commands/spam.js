@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'Returns your message 5 times',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args) {
+	async execute(bot, message, args, myUsername, myTag, myAvatar) {
 		if (message.author.bot) return;
         if(message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!");
 		let msgtosend = args.join(" ");
