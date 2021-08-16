@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'Sends a link to invite the bot',
 	usage: '',
 	args: true,
-	async execute(bot, message, args, myUsername, myTag, myAvatar) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
 
 		let input;
     	if(args[0]) input = args[0].toLowerCase();
