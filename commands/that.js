@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'Returns your message',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, myUsername, myTag, myAvatar) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         try {
         var suppliedID = args[0]
         var suppliedChannel = args[1]

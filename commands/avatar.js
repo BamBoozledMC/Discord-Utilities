@@ -8,7 +8,7 @@ module.exports = {
     usage: '',
 	args: true,
 	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
-    if (args[0]) {
+        if (args[0]) {
         let member;
         if(args[0]) {
           let mention;

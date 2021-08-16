@@ -6,7 +6,7 @@ module.exports = {
 	description: 'Checks the bot\'s ping',
 	usage: '!ping',
 	args: false,
-	async execute(bot, message, args, ping, myUsername, myTag, myAvatar) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
 		try {
         const pingMsg =  await message.channel.send('Pinging...');
 		return pingMsg.edit(`

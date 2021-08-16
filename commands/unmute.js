@@ -8,7 +8,7 @@ module.exports = {
 	usage: '',
 	args: false,
 	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
-if(!message.member.hasPermission("MANAGE_MESSAGES") && message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!")
+    if(!message.member.hasPermission("MANAGE_MESSAGES") && message.author.id != config.ownerID) return message.channel.send("Sorry, you don't have permissions to use this!")
 
     let xdemb = new Discord.MessageEmbed()
     .setColor("AQUA")

@@ -39,10 +39,8 @@ module.exports = {
 				.addField("Support:", "Sends a link to join our Support Server")
 				.setFooter(`Developed by ${myTag}`, myAvatar)
 				.setColor('#ff5c00')
-				message.channel.send(invitehelp).catch(error =>{
-					message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{
-					})
-				})}
+				message.channel.send(invitehelp)
+			}
 
 		message.delete().catch(error =>{
 		})

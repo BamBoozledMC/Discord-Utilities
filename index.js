@@ -94,9 +94,9 @@ if(!prefixRegex.test(message.content)) return;
 const [, matchedPrefix] = message.content.match(prefixRegex);
 	if (message.author.bot) return;
 
-	let myUsername = "BamBoozled";
-	let myTag = "BamBoozled#0882";
-	let myAvatar = "http://bamboozledmc.ddns.net/BamBoozled.png";
+	const myUsername = "BamBoozled";
+	const myTag = "BamBoozled#0882";
+	const myAvatar = "https://bamboozledmc.xyz/BamBoozled.png";
 
 	const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();

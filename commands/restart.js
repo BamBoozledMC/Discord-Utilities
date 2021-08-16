@@ -7,7 +7,7 @@ module.exports = {
     descrption: 'restarts bot',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, myUsername, myTag, myAvatar) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
     if (message.author.id != config.ownerID) return message.channel.send("No can do sir")
     try {
         message.channel.send(`<a:loading:735109207547707523> Attempting a restart...\n[<@${config.ownerID}>]`).then(message => {

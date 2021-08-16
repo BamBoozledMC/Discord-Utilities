@@ -9,7 +9,7 @@ module.exports = {
     aliases: ['memes'],
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, myUsername, myTag, myAvatar) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         if(!message.guild.me.permissionsIn(message.channel).has("ATTACH_FILES")) return message.lineReply(":x: I dont have permissions to Attach Files in this channel!")
         let generating = await message.lineReply("<a:loading:735109207547707523> Generating meme, Please be patient.")
         const subReddits = [
@@ -28,9 +28,10 @@ module.exports = {
         .setColor("AQUA")
         .setImage(img)
         .setDescription(`If the content does not load use this link.\n${img}`)
-        .setFooter(`Developed by ${myTag}`, myAvatar)
+        .setFooter(`Developed by ${myTag}`, "https://bamboozledmc.xyz/BamBoozled.png")
 
         let msg = await generating.edit("", memepic).catch(error =>{
+            console.log(error)
 			generating.edit(":x: The file I attempted to upload was too large.").catch(error =>{
             })
         })
@@ -41,7 +42,7 @@ module.exports = {
         .setURL(`https://www.reddit.com/r/${meme}`)
         .setColor("AQUA")
         .setDescription(`Content is a video, Uploading as an attachment...\n${img}`)
-        .setFooter(`Developed by ${myTag}`, myAvatar)
+        .setFooter(`Developed by ${myTag}`, "https://bamboozledmc.xyz/BamBoozled.png")
 
         await generating.edit("", memepic)
         message.channel.startTyping()

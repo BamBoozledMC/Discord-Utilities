@@ -6,8 +6,8 @@ module.exports = {
 	usage: '!uptime',
     aliases: ['up'],
 	args: false,
-	async execute(bot, message, args, ping, myUsername, myTag, myAvatar) {
-    let totalSeconds = (bot.uptime / 1000);
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
+	let totalSeconds = (bot.uptime / 1000);
 let days = Math.floor(totalSeconds / 86400);
 totalSeconds %= 86400;
 let hours = Math.floor(totalSeconds / 3600);

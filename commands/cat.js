@@ -9,7 +9,7 @@ module.exports = {
     aliases: ['cats'],
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, myUsername, myTag, myAvatar) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         if(!message.guild.me.permissionsIn(message.channel).has("ATTACH_FILES")) return message.lineReply(":x: I dont have permissions to Attach Files in this channel!")
         const subReddits = [
             'cat',

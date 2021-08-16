@@ -4,7 +4,7 @@ const config = require('../config.json');
 module.exports = {
     name: 'msgme',
     descrption: 'DMs you with "Hi!"',
-    execute(bot, message, args, myUsername, myTag, myAvatar){
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         message.author.send('Hi!')
 		message.delete().catch(error =>{
         })

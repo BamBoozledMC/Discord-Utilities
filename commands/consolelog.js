@@ -7,7 +7,7 @@ module.exports = {
     aliases: ['cl'],
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, myUsername, myTag, myAvatar) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         if (message.author.id != config.ownerID) return
 		if (message.author.bot) return;
 		let msgtolog = args.join(" ");

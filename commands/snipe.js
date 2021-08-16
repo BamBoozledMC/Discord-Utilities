@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'Shows last deleted message',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, myUsername, myTag, myAvatar) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
         const msg = bot.snipes.get(message.channel.id)
         if(!msg) return message.channel.send("I couldn't find any messages to snipe!");
         const snipedmsg = new Discord.MessageEmbed()

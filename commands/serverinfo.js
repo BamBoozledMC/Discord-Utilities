@@ -6,8 +6,8 @@ module.exports = {
 	description: '',
 	usage: '',
 	aliases: ['srvinfo', 'serverinf', 'srvinf'],
-	async execute(bot, message, args, myUsername, myTag, myAvatar) {
-const verlvl = {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
+    const verlvl = {
     NONE: "None",
     LOW: "Low",
     MEDIUM: "Medium",
@@ -33,6 +33,7 @@ const verlvl = {
     .setFooter(`Created ${message.guild.createdAt}\nDeveloped by ${myTag}`, myAvatar);
 
     message.channel.send(serverembed).catch(error =>{
+      console.log(error)
 			message.author.send(":x: I dont have permissions to send messages in that channel!").catch(error =>{
 			})
 		});

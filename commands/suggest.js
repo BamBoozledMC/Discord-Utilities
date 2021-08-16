@@ -6,7 +6,7 @@ module.exports = {
     descrption: 'Returns your message',
 	usage: '<message>',
 	args: true,
-	async execute(bot, message, args, myUsername, myTag, myAvatar) {
+	async execute(bot, message, args, prefix, myUsername, myTag, myAvatar) {
 		if (message.author.bot) return;
 		if (message.guild.id != "856233016909234177") return message.reply("This command is not enabled in your guild.");
 		if (message.content.includes("@everyone"))  return;
