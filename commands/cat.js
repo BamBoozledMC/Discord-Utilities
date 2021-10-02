@@ -20,7 +20,7 @@ module.exports = {
         if (img.endsWith(".mp4")) return require('./cat.js').execute(bot, message, args);
         let generating = await message.lineReply("<a:loading:735109207547707523> Generating cat, Please be patient.")
 
-        
+
         let memepic = new MessageEmbed()
         .setTitle(`Cats!`)
         .setURL(`https://www.reddit.com/r/${cat}`)
