@@ -9,7 +9,7 @@
   "author": "NightCrafter#0882",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.3.3",
+    "@discordjs/opus": "^0.8.0",
     "beautify": "0.0.8",
     "discord-reply": "^0.1.2",
     "discord.js": "^12.5.3",
